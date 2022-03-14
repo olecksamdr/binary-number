@@ -21,7 +21,7 @@ function generateButtons() {
 const getSum = binNum => {
   const operands = [];
 
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i <= 7; i++) {
     const term = 2**i;
     const isBitOn = binNum & term;
 
@@ -87,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btn) {
       bitsState = bitsState ^ 2**Number(btn.dataset.index);
-      console.log(bitsState, btn);
 
       toggle(btn);
       decimalResult.textContent = getSum(bitsState);
