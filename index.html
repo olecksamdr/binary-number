@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лампочка</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="bits">
+      <div class="bit-toggle">
+        <button
+          title="Вмикає і вимикає лампочку"
+          aria-label="auto"
+          aria-live="polite"
+          aria-pressed="false"
+          class="light-bulb-button"
+          data-index="7"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            stroke-width="0.7"
+            fill="none"
+            height="24"
+            width="24"
+          >
+            <path
+               class="light-bulb"
+               d="M 11.96875,4.1617385 C 8.63038,4.1620963 5.9241859,6.8682904 5.9238281,10.20666 c 1.993e-4,2.203266 1.1990096,4.231964 3.1289063,5.294922 1.7012656,0.698734 1.5493666,2.871094 1.5493666,2.871094 l 2.727013,-0.03038 c 0,0 -0.121519,-1.72817 1.670886,-2.91298 1.863746,-1.079434 3.012481,-3.068888 3.015625,-5.222656 C 18.015267,6.8675277 15.307883,4.1610176 11.96875,4.1617385 Z"
+               stroke="currentColor"
+            />
+
+            <!-- light bulb socket -->
+            <g class="light-bulb-socket" stroke="currentColor">
+              <path d="m 11.017219,21.941767 h 1.965563" />
+              <path d="m 10.138517,19.746836 h 3.722967" />
+              <path d="m 10.407874,20.901263 h 3.184252" />
+            </g>
+
+            <!-- beams of light -->
+            <g class="beams-of-light" stroke="currentColor">
+              <path d="m 16.451899,16.330379 1,1" />
+              <path d="m 5.6126582,16.607594 1,-1" />
+              <path d="m 18.456962,5.7253164 1,-1" />
+              <path d="m 19.647493,10.830697 1.413874,-0.03101" />
+              <path d="m 2.877873,10.587659 1.413874,-0.03101" />
+              <path d="m 4.6341771,4.6037978 1,1" />
+              <path d="m 12.054165,0.9334303 0.01319,1.4141521" />
+            </g>
+          </svg>
+          <!-- 0 or 1 -->
+          <span class="bit">
+            0
+          </span>
+        </button>
+        <div class="power-of-two">
+          <!-- from 1 to 2^8 for desktop -->
+          <!-- from 1 to 2^4 for mobile -->
+        </div>
+      </div> <!-- end of bit-toggle -->
+    </div> <!-- end of bits -->
+
+    <div class="decimal-result" id="decimal-result"></div>
+  </div>
+
+</body>
+</html>

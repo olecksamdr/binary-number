@@ -1,0 +1,122 @@
+/*https://color.adobe.com/ru/search?q=light%20bulb&t=term*/
+/*TODO подивитися на різні ф-ції анімації*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --bg: #0D0D0D;
+  --ease-elastic-4: cubic-bezier(.5, 1.5, .75, 1.25);
+}
+
+body {
+  background-color: var(--bg);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Oxygen, Cantarell, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.bits {
+  display: flex;
+  overflow-y: auto;
+  padding-bottom: 8px;
+}
+
+.light-bulb-button {
+  --size: 4rem;
+  --icon-fill: #ffd15c;
+  --light-on-stroke: #ffa200;
+  --icon-stroke: hsl(0deg 0% 60%);
+
+  /* TODO hsl */
+  --icon-hover: #f2aa6b;
+
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--icon-stroke);
+
+  inline-size: var(--size);
+
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+
+  outline-offset: 5px;
+}
+
+.light-bulb-button > svg {
+  inline-size: 100%;
+  block-size: 100%;
+  
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  transition: transform 0.1s ease-out;
+}
+
+.light-bulb-button[aria-pressed="true"] > svg {
+  transform: translateY(10px);
+}
+
+.light-bulb {
+  transition: fill 0.3s ease-out,
+              stroke 0.3s ease-out,
+              filter 0.3s ease-out,
+              stroke-width 0.3s ease-out;
+  fill: transparent;
+}
+
+.light-bulb-button[aria-pressed="true"] .light-bulb {
+  fill: var(--icon-fill);
+  filter: drop-shadow(0 0 2px var(--icon-fill));
+  stroke-width: 0.3;
+  stroke: var(--light-on-stroke);
+}
+
+.beams-of-light {
+  transition: stroke 0.3s ease-out,
+              opacity 0.3s ease-in,
+              stroke-width 0.3s ease-out;
+  transform-origin: center;
+  opacity: 0;
+  stroke: var(--light-on-stroke);
+  stroke-width: 0;
+}
+
+.light-bulb-button[aria-pressed="true"] .beams-of-light {
+  stroke: var(--light-on-stroke);
+  opacity: 1;
+  stroke-width: 0.7;
+}
+
+.bit {
+  color: #F2F2F2;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.power-of-two {
+  color: hsl(0deg 0% 60%);
+  font-size: 2rem;
+  text-align: center;
+  /*transform: rotate(65deg);*/
+}
+
+.decimal-result {
+  width: 100%;
+  margin-top: 32px;
+  color: #F2F2F2;
+  font-size: 2rem;
+  text-align: center;
+  overflow: auto;
+}
