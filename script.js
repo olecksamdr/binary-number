@@ -43,8 +43,8 @@ const getSum = binNum => {
 const isButtonOn = button => button.getAttribute('aria-pressed') === 'true';
 
 const toggle = (button) => {
-    const soundOn = 'mixkit-typewriter-hit-1362';
-    const soundOff = 'mixkit-blow-breaking-the-air-2057';
+    const soundOn = 'mixkit-select-click-1109';
+    const soundOff = 'mixkit-mouse-click-close-1113';
 
     const currentState = button.getAttribute('aria-pressed') === 'true';
     const nextState = !currentState;
