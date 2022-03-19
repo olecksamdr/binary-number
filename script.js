@@ -40,12 +40,6 @@ const getSum = binNum => {
   return operands.length > 1 ? `${operands.join(' + ')} = ${binNum}` : binNum;
 }
 
-const scrollBitsToRight = () => {
-  const bitsContainer = document.querySelector('.bits');
-
-  bitsContainer.scrollLeft = bitsContainer.clientWidth;
-}
-
 const isButtonOn = button => button.getAttribute('aria-pressed') === 'true';
 
 const toggle = (button) => {
@@ -87,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const decimalResult = document.getElementById('decimal-result');
 
-  scrollBitsToRight();
   syncDomWithState(bitsState);
 
   bits.addEventListener('click', ({ target }) => {
