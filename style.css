@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 700px;
+  max-width: 512px;
   margin: 0 auto;
 }
 
@@ -108,9 +108,20 @@ body {
 
 .power-of-two {
   color: hsl(0deg 0% 60%);
-  font-size: 2rem;
+}
+
+.power-of-two {
   text-align: center;
-  /*transform: rotate(65deg);*/
+  font-size: 2rem;
+}
+
+.description {
+  font-weight: lighter;
+  color: #F2F2F2;
+  padding: 16px 8px;
+  font-size: 1.5rem;
+  margin-bottom: 32px;
+  border-bottom: 1px dashed hsl(0deg 0% 60%);
 }
 
 .decimal-result {
