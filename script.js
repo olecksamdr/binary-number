@@ -4,10 +4,11 @@ let bitsCount = 1;
 const buttonsClass = '.light-bulb-button';
 
 function generateButtons() {
+  const padding = 16;
   const bitToggle = document.querySelector('.bit-toggle');
 
   const toggleWidth = bitToggle.offsetWidth;
-  const windowWidth = document.documentElement.clientWidth;
+  const windowWidth = document.documentElement.clientWidth - padding;
   const buttonsWillFit = Math.min(8, Math.floor(windowWidth / toggleWidth))
 
   bitsCount = buttonsWillFit;
