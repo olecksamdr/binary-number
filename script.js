@@ -3,13 +3,13 @@ let bitsState = 0b0000_0000;
 const buttonsClass = '.light-bulb-button';
 
 function generateButtons() {
-  const bitTiggle = document.querySelector('.bit-toggle');
-  let beforeTheLast = bitTiggle;
+  const bitToggle = document.querySelector('.bit-toggle');
+  let beforeTheLast = bitToggle;
 
   beforeTheLast.querySelector('.power-of-two').textContent = 2**7;
 
   for (let i = 6; i >= 0; i--) {
-    const clone = bitTiggle.cloneNode(true);
+    const clone = bitToggle.cloneNode(true);
 
     clone.querySelector(buttonsClass).dataset.index = i;
     clone.querySelector('.power-of-two').textContent = 2**i;
@@ -71,6 +71,7 @@ const syncDomWithState = binaryNumber => {
     }
   }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const bits = document.querySelector('.bits');
