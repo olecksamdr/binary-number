@@ -1,19 +1,25 @@
-let bitsState = 0b0000_0000;
+let bitsState = 0;
+let bitsCount = 1;
 
 const buttonsClass = '.light-bulb-button';
 
 function generateButtons() {
   const bitToggle = document.querySelector('.bit-toggle');
+
+  const toggleWidth = bitToggle.offsetWidth;
+  const windowWidth = document.documentElement.clientWidth;
+  const buttonsWillFit = Math.min(8, Math.floor(windowWidth / toggleWidth))
+
+  bitsCount = buttonsWillFit;
   let beforeTheLast = bitToggle;
 
-  beforeTheLast.querySelector('.power-of-two').textContent = 2**7;
-
-  for (let i = 6; i >= 0; i--) {
+  // Starts from 1 because we already have one button in HTML
+  for (let i = 1; i < buttonsWillFit; i++) {
     const clone = bitToggle.cloneNode(true);
 
     clone.querySelector(buttonsClass).dataset.index = i;
     clone.querySelector('.power-of-two').textContent = 2**i;
-    beforeTheLast.after(clone);
+    beforeTheLast.before(clone);
     beforeTheLast = clone;
   }
 }
