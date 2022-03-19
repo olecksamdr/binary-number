@@ -48,7 +48,11 @@ const toggle = (button) => {
 
     const currentState = button.getAttribute('aria-pressed') === 'true';
     const nextState = !currentState;
-    new Audio(`audio/${nextState ? soundOn : soundOff}.wav`).play();
+    const audio = new Audio(`audio/${nextState ? soundOn : soundOff}.wav`);
+
+    audio.volume = 0.2;
+    audio.play()
+
 
     button.setAttribute(
       'aria-label',
