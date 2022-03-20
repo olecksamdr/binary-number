@@ -1,5 +1,6 @@
-/*https://color.adobe.com/ru/search?q=light%20bulb&t=term*/
-/*TODO подивитися на різні ф-ції анімації*/
+/* https://color.adobe.com/ru/search?q=light%20bulb&t=term */
+/* TODO подивитися на різні ф-ції анімації */
+/* TODO розібратися з коьлорами і повиносити у змінні */
 
 * {
   box-sizing: border-box;
@@ -18,11 +19,38 @@ body {
 }
 
 .container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 512px;
   margin: 0 auto;
+}
+
+.description {
+  font-weight: lighter;
+  color: #F2F2F2;
+  font-size: 1.5rem;
+  padding: 16px 8px;
+  margin-bottom: 32px;
+  border-top: 1px dashed hsl(0deg 0% 60%);
+  width: 100%;
+  text-align: center;
+}
+
+.sound-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #999;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: normal;
+  padding: 8px;
+  margin-left: auto;
+  margin-bottom: 32px;
 }
 
 .bits {
@@ -115,16 +143,8 @@ body {
   font-size: 2rem;
 }
 
-.description {
-  font-weight: lighter;
-  color: #F2F2F2;
-  padding: 16px 8px;
-  font-size: 1.5rem;
-  margin-bottom: 32px;
-  border-bottom: 1px dashed hsl(0deg 0% 60%);
-}
-
 .decimal-result {
+  flex: 1;
   width: 100%;
   margin-top: 32px;
   color: #F2F2F2;

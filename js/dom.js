@@ -1,3 +1,22 @@
+export function activateSoundToggle(callback) {
+  const soundToggle = document.querySelector('.sound-toggle');
+  const textSpan = soundToggle.querySelector('span');
+  const img = soundToggle.querySelector('img');
+
+  soundToggle.addEventListener('click', () => {
+    const currentState = soundToggle.getAttribute('aria-pressed') === 'true';
+    const nextState = !currentState;
+    const text =  `${nextState ? 'Вимкнути' : 'Увімкнути'} звук кнопок`;
+    const src = `img/volume-${nextState ? 'on' : 'off'}.svg`;
+
+    soundToggle.setAttribute('aria-pressed', nextState);
+    textSpan.textContent = text;
+    img.src = src;
+
+    callback(nextState);
+  })
+}
+
 export function generateButtons() {
   const padding = 16;
   const bitToggle = document.querySelector('.bit-toggle');
@@ -19,17 +38,18 @@ export function generateButtons() {
   }
 }
 
-export function toggle (button) {
+export function toggle (button, isSoundOn) {
   const soundOn = 'mixkit-select-click-1109';
   const soundOff = 'mixkit-mouse-click-close-1113';
 
   const currentState = button.getAttribute('aria-pressed') === 'true';
   const nextState = !currentState;
-  const audio = new Audio(`audio/${nextState ? soundOn : soundOff}.wav`);
 
-  audio.volume = 0.2;
-  audio.play()
-
+  if (isSoundOn) {
+    const audio = new Audio(`audio/${nextState ? soundOn : soundOff}.wav`);
+    audio.volume = 0.2;
+    audio.play()
+  }
 
   button.setAttribute(
     'aria-label',

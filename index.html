@@ -10,9 +10,13 @@
 </head>
 <body>
   <div class="container">
-    <div class="description">
-      Натискайте на цифри з 💡
-    </div>
+    <button
+      class="sound-toggle"
+      aria-pressed="false"
+    >
+      <span>Увімкнути звук кнопок</span>
+      <img width="36" height="36" src="img/volume-off.svg" alt="">
+    </button>
     <div class="bits">
       <div class="bit-toggle">
         <button
@@ -68,8 +72,9 @@
       </div> <!-- end of bit-toggle -->
     </div> <!-- end of bits -->
 
-    <div class="decimal-result" id="decimal-result"></div>
-  </div>
-
+    <div class="decimal-result" id="decimal-result">
+      <span class="description">Натискайте на цифри з 💡</span>
+    </div>
+  </div> <!-- end of container -->
 </body>
 </html>

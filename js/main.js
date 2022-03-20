@@ -1,8 +1,10 @@
 import { binaryToDecimal } from './binary-operations.js'
-import { generateButtons, toggle } from './dom.js';
+import { generateButtons, toggle, activateSoundToggle } from './dom.js';
 
 let bitsState = 0;
+let isSoundOn = false;
 
+activateSoundToggle(soundState => { isSoundOn = soundState });
 generateButtons();
 
 const bits = document.querySelector('.bits');
@@ -14,7 +16,7 @@ bits.addEventListener('click', ({ target }) => {
   if (btn) {
     bitsState = bitsState ^ 2**Number(btn.dataset.index);
 
-    toggle(btn);
+    toggle(btn, isSoundOn);
     decimalResult.textContent = binaryToDecimal(bitsState);
   }
 });
