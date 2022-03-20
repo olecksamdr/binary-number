@@ -31,11 +31,6 @@ body {
   font-weight: lighter;
   color: #F2F2F2;
   font-size: 1.5rem;
-  padding: 16px 8px;
-  margin-bottom: 32px;
-  border-top: 1px dashed hsl(0deg 0% 60%);
-  width: 100%;
-  text-align: center;
 }
 
 .sound-toggle {
