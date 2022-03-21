@@ -1,6 +1,5 @@
 export function activateSoundToggle(callback) {
   const soundToggle = document.querySelector('.sound-toggle');
-  const textSpan = soundToggle.querySelector('span');
   const img = soundToggle.querySelector('img');
 
   soundToggle.addEventListener('click', () => {
@@ -10,7 +9,7 @@ export function activateSoundToggle(callback) {
     const src = `img/volume-${nextState ? 'on' : 'off'}.svg`;
 
     soundToggle.setAttribute('aria-pressed', nextState);
-    textSpan.textContent = text;
+    soundToggle.setAttribute('aria-label', text);
     img.src = src;
 
     callback(nextState);
