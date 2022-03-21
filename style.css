@@ -33,15 +33,9 @@ body {
 }
 
 .sound-toggle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #999;
+  cursor: pointer;
   background: transparent;
   border: none;
-  font-family: inherit;
-  font-size: 1.25rem;
-  font-weight: normal;
   padding: 8px;
   margin-left: auto;
   margin-bottom: 32px;
