@@ -34,11 +34,23 @@ body {
 
 .sound-toggle {
   cursor: pointer;
+  color: hsl(0deg 0% 60%);
   background: transparent;
   border: none;
   padding: 8px;
   margin-left: auto;
   margin-bottom: 32px;
+}
+
+/* https://www.cassie.codes/posts/creating-my-logo-animation/ */
+.last-sound-wave {
+  stroke-dasharray: 10;
+  stroke-dashoffset: -5;
+  transition: stroke-dashoffset .3s ease-in;
+}
+
+.last-sound-wave--active {
+  stroke-dashoffset: 5;
 }
 
 .bits {

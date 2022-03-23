@@ -1,16 +1,15 @@
 export function activateSoundToggle(callback) {
   const soundToggle = document.querySelector('.sound-toggle');
-  const img = soundToggle.querySelector('img');
+  const soundWavePath = document.querySelector('.last-sound-wave');
 
   soundToggle.addEventListener('click', () => {
     const currentState = soundToggle.getAttribute('aria-pressed') === 'true';
     const nextState = !currentState;
     const text =  `${nextState ? 'Вимкнути' : 'Увімкнути'} звук кнопок`;
-    const src = `img/volume-${nextState ? 'on' : 'off'}.svg`;
+    soundWavePath.classList.toggle('last-sound-wave--active');
 
     soundToggle.setAttribute('aria-pressed', nextState);
     soundToggle.setAttribute('aria-label', text);
-    img.src = src;
 
     callback(nextState);
   })
