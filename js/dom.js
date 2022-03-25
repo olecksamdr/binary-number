@@ -37,8 +37,8 @@ export function generateButtons() {
 }
 
 export function toggle (button, isSoundOn) {
-  const soundOn = 'mixkit-select-click-1109';
-  const soundOff = 'mixkit-mouse-click-close-1113';
+  const soundOn = 'on';
+  const soundOff = 'off';
 
   const currentState = button.getAttribute('aria-pressed') === 'true';
   const nextState = !currentState;
@@ -46,7 +46,7 @@ export function toggle (button, isSoundOn) {
   if (isSoundOn) {
     const audio = new Audio(`audio/${nextState ? soundOn : soundOff}.wav`);
     audio.volume = 0.2;
-    audio.play()
+    audio.play();
   }
 
   button.setAttribute(
