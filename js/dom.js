@@ -1,6 +1,10 @@
-export function activateSoundToggle(callback) {
+export function activateSoundToggle(initialValue, onClick) {
   const soundToggle = document.querySelector('.sound-toggle');
   const soundWavePath = document.querySelector('.last-sound-wave');
+
+  if (initialValue) {
+    soundWavePath.classList.add('last-sound-wave--active')
+  }
 
   soundToggle.addEventListener('click', () => {
     const currentState = soundToggle.getAttribute('aria-pressed') === 'true';
@@ -11,7 +15,7 @@ export function activateSoundToggle(callback) {
     soundToggle.setAttribute('aria-pressed', nextState);
     soundToggle.setAttribute('aria-label', text);
 
-    callback(nextState);
+    onClick(nextState);
   })
 }
 
@@ -56,4 +60,14 @@ export function toggle (button, isSoundOn) {
 
   button.setAttribute('aria-pressed', nextState);
   button.querySelector('.bit').textContent = nextState ? 1 : 0;
+}
+
+const soundPreferenceKey = 'is-sound-on';
+
+export function getSoundPreference() {
+  return Boolean(localStorage.getItem(soundPreferenceKey));
+}
+
+export function setSoundPreference(isOn) {
+  return localStorage.setItem(soundPreferenceKey, isOn);
 }

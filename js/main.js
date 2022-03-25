@@ -1,10 +1,20 @@
 import { binaryToDecimal } from './binary-operations.js'
-import { generateButtons, toggle, activateSoundToggle } from './dom.js';
+import {
+  toggle,
+  generateButtons,
+  getSoundPreference,
+  setSoundPreference,
+  activateSoundToggle,
+} from './dom.js';
 
 let bitsState = 0;
-let isSoundOn = false;
+let isSoundOn = getSoundPreference();
 
-activateSoundToggle(soundState => { isSoundOn = soundState });
+activateSoundToggle(isSoundOn, isOn => {
+  setSoundPreference(isOn);
+  isSoundOn = isOn;
+});
+
 generateButtons();
 
 const bits = document.querySelector('.bits');
