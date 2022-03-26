@@ -1,21 +1,12 @@
-export function activateSoundToggle(initialValue, onClick) {
-  const soundToggle = document.querySelector('.sound-toggle');
-  const soundWavePath = document.querySelector('.last-sound-wave');
-
-  if (initialValue) {
-    soundWavePath.classList.add('last-sound-wave--active')
-  }
-
-  soundToggle.addEventListener('click', () => {
-    const currentState = soundToggle.getAttribute('aria-pressed') === 'true';
+export function activateSoundToggle(toggleElement) {
+  toggleElement.addEventListener('click', () => {
+    const currentState = toggleElement.getAttribute('aria-pressed') === 'true';
     const nextState = !currentState;
     const text =  `${nextState ? 'Вимкнути' : 'Увімкнути'} звук кнопок`;
-    soundWavePath.classList.toggle('last-sound-wave--active');
 
-    soundToggle.setAttribute('aria-pressed', nextState);
-    soundToggle.setAttribute('aria-label', text);
-
-    onClick(nextState);
+    toggleElement.classList.toggle('sound-toggle--on');
+    toggleElement.setAttribute('aria-pressed', nextState);
+    toggleElement.setAttribute('aria-label', text);
   })
 }
 
@@ -65,7 +56,7 @@ export function toggle (button, isSoundOn) {
 const soundPreferenceKey = 'is-sound-on';
 
 export function getSoundPreference() {
-  return Boolean(localStorage.getItem(soundPreferenceKey));
+  return localStorage.getItem(soundPreferenceKey) === 'true';
 }
 
 export function setSoundPreference(isOn) {

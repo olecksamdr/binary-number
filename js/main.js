@@ -10,7 +10,18 @@ import {
 let bitsState = 0;
 let isSoundOn = getSoundPreference();
 
-activateSoundToggle(isSoundOn, isOn => {
+const soundToggle = document.querySelector('.sound-toggle');
+
+console.log({isSoundOn});
+if (isSoundOn) {
+  soundToggle.classList.add('sound-toggle--on');
+}
+
+activateSoundToggle(soundToggle);
+
+soundToggle.addEventListener('click', event => {
+  const isOn = event.currentTarget.getAttribute('aria-pressed') === 'true';
+
   setSoundPreference(isOn);
   isSoundOn = isOn;
 });
