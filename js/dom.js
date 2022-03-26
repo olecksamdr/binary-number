@@ -1,13 +1,7 @@
-export function activateSoundToggle(toggleElement) {
-  toggleElement.addEventListener('click', () => {
-    const currentState = toggleElement.getAttribute('aria-pressed') === 'true';
-    const nextState = !currentState;
-    const text =  `${nextState ? 'Вимкнути' : 'Увімкнути'} звук кнопок`;
+import { createToggle } from './toggle.js';
 
-    toggleElement.classList.toggle('sound-toggle--on');
-    toggleElement.setAttribute('aria-pressed', nextState);
-    toggleElement.setAttribute('aria-label', text);
-  })
+function getButtonArialLabel(isOn) {
+  return `Лампочка ${isOn ? 'увімкнута' : 'вимкнута'}`;
 }
 
 export function generateButtons() {
@@ -18,11 +12,21 @@ export function generateButtons() {
   const windowWidth = document.documentElement.clientWidth - padding;
   const buttonsWillFit = Math.min(8, Math.floor(windowWidth / toggleWidth))
 
+  createToggle({
+    element: bitToggle.querySelector('.light-bulb-button'),
+    getAriaLabel: getButtonArialLabel,
+  });
+
   let beforeTheLast = bitToggle;
 
   // Starts from 1 because we already have one button in HTML
   for (let i = 1; i < buttonsWillFit; i++) {
     const clone = bitToggle.cloneNode(true);
+
+    createToggle({
+      element: clone.querySelector('.light-bulb-button'),
+      getAriaLabel: getButtonArialLabel,
+    });
 
     clone.querySelector('.light-bulb-button').dataset.index = i;
     clone.querySelector('.power-of-two').textContent = 2**i;
@@ -31,26 +35,14 @@ export function generateButtons() {
   }
 }
 
-export function toggle (button, isSoundOn) {
-  const soundOn = 'on';
-  const soundOff = 'off';
-
-  const currentState = button.getAttribute('aria-pressed') === 'true';
-  const nextState = !currentState;
-
+export function toggle ({ button, isOn, isSoundOn }) {
   if (isSoundOn) {
-    const audio = new Audio(`audio/${nextState ? soundOn : soundOff}.wav`);
+    const audio = new Audio(`audio/${isOn ? 'on' : 'off'}.wav`);
     audio.volume = 0.2;
     audio.play();
   }
 
-  button.setAttribute(
-    'aria-label',
-    `Лампочка ${nextState ? 'увімкнута' : 'вимкнута'}`
-  );
-
-  button.setAttribute('aria-pressed', nextState);
-  button.querySelector('.bit').textContent = nextState ? 1 : 0;
+  button.querySelector('.bit').textContent = isOn ? 1 : 0;
 }
 
 const soundPreferenceKey = 'is-sound-on';
