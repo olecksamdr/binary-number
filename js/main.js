@@ -12,7 +12,6 @@ let isSoundOn = getSoundPreference();
 
 const soundToggle = document.querySelector('.sound-toggle');
 
-console.log({isSoundOn});
 if (isSoundOn) {
   soundToggle.classList.add('sound-toggle--on');
 }
