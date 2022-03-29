@@ -8,13 +8,16 @@
 }
 
 :root {
-  --bg: #0D0D0D;
+  --bg: #0d0d0d;
+  --primary-color: #f2f2f2;
+  --secondary-color: hsl(0deg 0% 60%);
   --ease-elastic-4: cubic-bezier(.5, 1.5, .75, 1.25);
 }
 
 body {
   padding: 8px;
   background-color: var(--bg);
+  color: var(--primary-color);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Oxygen, Cantarell, sans-serif;
 }
 
@@ -28,13 +31,13 @@ body {
 }
 
 .description {
-  color: #F2F2F2;
   font-size: 1.5rem;
 }
 
+/* todo btn-reset */
 .sound-toggle {
   cursor: pointer;
-  color: hsl(0deg 0% 60%);
+  color: var(--secondary-color);
   background: transparent;
   border: none;
   padding: 8px;
@@ -63,10 +66,7 @@ body {
   --size: 4rem;
   --icon-fill: #ffd15c;
   --light-on-stroke: #ffa200;
-  --icon-stroke: hsl(0deg 0% 60%);
-
-  /* TODO hsl */
-  --icon-hover: #f2aa6b;
+  --icon-stroke: var(--secondary-color);
 
   background: none;
   border: none;
@@ -128,26 +128,22 @@ body {
 }
 
 .bit {
-  color: #F2F2F2;
+  color: var(--primary-color);
   font-size: 4rem;
   font-weight: bold;
   text-align: center;
 }
 
 .power-of-two {
-  color: hsl(0deg 0% 60%);
-}
-
-.power-of-two {
   text-align: center;
   font-size: 2rem;
+  color: var(--secondary-color);
 }
 
 .decimal-result {
   flex: 1;
   width: 100%;
   margin-top: 32px;
-  color: #F2F2F2;
   font-size: 2rem;
   text-align: center;
   overflow: auto;
