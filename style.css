@@ -30,16 +30,12 @@ body {
   margin: 0 auto;
 }
 
-.description {
-  font-size: 1.5rem;
-}
-
-/* todo btn-reset */
 .sound-toggle {
   cursor: pointer;
   color: var(--secondary-color);
-  background: transparent;
+  background: none;
   border: none;
+  touch-action: manipulation;
   padding: 8px;
   margin-left: auto;
   margin-bottom: 32px;
@@ -138,6 +134,10 @@ body {
   text-align: center;
   font-size: 2rem;
   color: var(--secondary-color);
+}
+
+.description {
+  font-size: 1.5rem;
 }
 
 .decimal-result {
